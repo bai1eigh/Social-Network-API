@@ -1,6 +1,41 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
+const dateFormat = require("../utils/dateFormat");
 
-// Schema to create Post model
+const ReactionSchema = new Schema(
+    {
+      reactionId: {
+        // Mongoose's ObjectId data type
+        type: Schema.Types.ObjectId,
+        // Default value is set to a new ObjectId
+        default: () => new Types.ObjectId(),
+      },
+  
+      reactionBody: {
+        type: String,
+        required: true,
+        maxlength: 280,
+      },
+  
+      username: {
+        type: String,
+        required: true,
+      },
+  
+      createdAt: {
+        type: Date,
+        default: Date.now,
+        // Use a getter method to format the timestamp on query
+        get: (timestamp) => dateFormat(timestamp),
+      },
+    },
+    {
+      toJSON: {
+        getters: true,
+      },
+      id: false,
+    }
+  );
+// Schema to create thought model
 const ThoughtSchema = new Schema(
     {
     thoughtText: {
