@@ -18,11 +18,11 @@ WHEN I test API POST and DELETE routes in Insomnia
 THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
 
 ## Technologies Used 
-Javascript 
-Mongoose 
-Express
-MySql Booster 
-Postman
+⋅⋅* Javascript 
+⋅⋅* Mongoose 
+⋅⋅* Express
+⋅⋅* MySql Booster 
+⋅⋅* Postman
 
 ## Walkthrough
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
