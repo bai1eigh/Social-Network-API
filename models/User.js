@@ -30,10 +30,13 @@ friends: [
     },
 ],
 },
+ // virtuals & getters
     {
       toJSON: {
         virtuals: true,
+        getters: true
       },
+      // omit id
       id: false,
     }
   );

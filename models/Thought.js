@@ -13,6 +13,8 @@ const ReactionSchema = new Schema(
       reactionBody: {
         type: String,
         required: true,
+        minlength: 1,
+        trim: true,
         maxlength: 280,
       },
   
@@ -25,7 +27,7 @@ const ReactionSchema = new Schema(
         type: Date,
         default: Date.now,
         // Use a getter method to format the timestamp on query
-        get: (timestamp) => dateFormat(timestamp),
+        get: createdAtVal => moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a')
       },
     },
     {
@@ -35,6 +37,7 @@ const ReactionSchema = new Schema(
       id: false,
     }
   );
+
 // Schema to create thought model
 const ThoughtSchema = new Schema(
     {
@@ -49,7 +52,7 @@ const ThoughtSchema = new Schema(
     Type:Date,
     default: Date.now,
     timestamp:true,
-    get: (timestamp) => dateFormat(timestamp),
+    get:  (createdAtVal) => dateFormat(createdAtVal),
     
     },
 
